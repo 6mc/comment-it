@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comment it</title>
+</head>
+<body>
+Paste Your Link 
+<input type="text" name="url" id="link" style=" width: 300px; ">
+ <input type="submit" value="Submit" onclick="trigger()">
+
+
+ <script type="text/javascript">
+function trigger()
+{
+
+var url = document.getElementById('link').value;
+
+if (url.search("www")==-1) 
+{
+
+var fixed = url.split("//");
+
+}
+else
+var fixed = url.split("www.");
+
+if (fixed[1]!=null) 
+alert(fixed[1]);
+else
+	alert(fixed[0]);
+
+
+}
+
+
+
+
+
+
+ </script>
+
+</body>
+</html>
