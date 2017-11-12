@@ -9,11 +9,42 @@ module.exports = function(app, Content)
   app.get('/api/contents', function(req,res){
     Content.find(function(err, contents){
       if(err) return res.status(500).send({err: 'database failure'});
-      res.json(contents);
+     //res.json(contents);
+      //var lop = contents+" ";
+    // var mig = String(contents).split(":");
+      res.send(stabilizer(contents));
     });
   });
 
-  // 특정 값 데이터 조회
+function stabilizer(kurit){
+
+var a=2;
+var b=3;
+var c=4;
+
+  var mig = String(kurit).split(":");
+var zigot = " ";
+while (mig[a]!=null){
+zigot =zigot+mig[a]+mig[b]+mig[c]+"<br/>";
+a=a+4;
+b=b+4;
+c=c+4;
+}
+
+//zigot = .replace('a','e');
+
+zigot = zigot.replace(/'/gi, '');
+zigot = zigot.replace(/}/gi, '');
+zigot = zigot.replace(/,{ _id/gi, '');
+var apex = zigot.split("0");
+
+return apex[0];
+   //   return mig[2];
+}
+
+
+
+  // 특정 값 데이터 조회 db.userdetails.remove( { "user_id" : "testuser" } )
   app.post('/api/search', function(req, res){
     // 일치되는 값 전체 출력
     Content.find({name: req.body.name}, function(err, contents){
