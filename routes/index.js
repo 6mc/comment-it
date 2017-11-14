@@ -12,7 +12,7 @@ module.exports = function(app, Content)
      //res.json(contents);
       //var lop = contents+" ";
     // var mig = String(contents).split(":");
-      res.send(stabilizer(contents));
+     res.send(stabilizer(contents));
     });
   });
 
@@ -47,9 +47,10 @@ return apex[0];
   // 특정 값 데이터 조회 db.userdetails.remove( { "user_id" : "testuser" } )
   app.post('/api/search', function(req, res){
     // 일치되는 값 전체 출력
-    Content.find({name: req.body.name}, function(err, contents){
+    Content.find({url: req.body.url}, function(err, contents){
       if(err) return res.status(500).send({err: 'database failure'});
-      res.json(contents);
+     // res.json(contents);
+    res.send(stabilizer(contents));
     });
     // 일치되는 값 1개 출력
     // Content.findOne({name: req.body.name}, function(err, content){
