@@ -23,11 +23,12 @@ var b=3;
 var c=4;
 
   var mig = String(kurit).split(":");
-var zigot = " ";
+mig[b] = mig[b].replace(/,/gi, '');
+var zigot = "<h1>"+mig[b]+"</h1><br/>";
 while (mig[a]!=null){
-zigot =zigot+mig[a]+mig[b]+mig[c]+"<br/>";
+zigot =zigot+"<h2>&quot"+mig[a].replace(/,/gi, '')+"&quot</h2>"+mig[c]+"<br/>";
 a=a+4;
-b=b+4;
+//b=b+4;
 c=c+4;
 }
 
@@ -35,8 +36,38 @@ c=c+4;
 
 zigot = zigot.replace(/'/gi, '');
 zigot = zigot.replace(/}/gi, '');
+zigot = zigot.replace(/name/gi, '');
+zigot = zigot.replace(/url/gi, '');
 zigot = zigot.replace(/,{ _id/gi, '');
+
+//zigot = zigot+ "<link rel='stylesheet' href='css/main.css'>";
+
+
 var apex = zigot.split("0");
+
+
+
+//var combox = ""
+
+var sb = " <form id='form-one' class='form' action='/api/insert' method='post'>" +
+"      " +
+"      <p class='name' >" +
+"        <input name='name' type='text'       class='validate[required,custom[onlyLetter],length[0,100]] feedback-input' placeholder='Name' id='name' />" +
+"      </p>" +
+"      " +
+"      " +
+"      " +
+"      <p class='text'>" +
+"        <textarea name='Comment' class='validate[required,length[6,300]] feedback-input' id='comment' placeholder='Comment' style='height: 50px; width: 300px;'></textarea>" +
+"      </p>" +
+"      " +
+"      <input type='text' name='url'  placeholder='url' style='width: 20%; height: 35px; display: none ' " +"value="+mig[b]+"/>"+
+"    " +
+"        <input type='submit' value='Comment !' id='button-bottom'/>" +
+"       </form>";
+
+apex[0] = "<div style='text-align: center;'>"+apex[0]+sb +"</div>";
+
 
 return apex[0];
    //   return mig[2];
@@ -77,7 +108,8 @@ return apex[0];
           }
       });
       // res.send('input success');
-      res.redirect('/admin'); //
+   //   res.redirect('/admin');
+     res.redirect('back');
       // res.json({result: "success"});
   });
 
