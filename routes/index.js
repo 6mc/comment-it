@@ -254,12 +254,20 @@ else
       });
       // res.send('input success');
     //  res.redirect('/admin');
+
+
     
  Content.find({url: req.body.url}, function(err, contents){
       if(err) return res.status(500).send({err: 'database failure'});
 var context = req.body.url;
 
- res.send(stabilizer(contents,context));
+
+    //do what you need here
+
+ res.send("Your Comment has been successfully submitted !");
+
+  
+
 
     // res.redirect('back');
       // res.json({result: "success"});
