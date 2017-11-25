@@ -18,8 +18,8 @@ db.once('open', function(){
     console.log("Connected to mongod server"); // mongoose 연결 확인 메시지 출력
 });
 
-mongoose.connect('mongodb://localhost/choco'); // choco 데이터 베이스 연결
 
+mongoose.connect('mongodb://localhost/choco');
 var Content = require('./models/content'); // mongodb 'content' collection 생성 모듈 호출
 
 app.use(bodyParser.urlencoded({ extended: true })); // 폼 데이터 입력을 받기 위한 사용 설정
