@@ -1,18 +1,9 @@
-mongodb basic data used by node express.
-================================================
+[![N|Solid](https://img.shields.io/badge/mongodb-v3.4.1-blue.svg)](https://comment-rex.herokuapp.com/)
+[![N|Solid](https://img.shields.io/badge/node-v8.4.0-green.svg)](https://comment-rex.herokuapp.com/)
+[![N|Solid](https://img.shields.io/badge/npm-v5.5.1-blue.svg)](https://comment-rex.herokuapp.com/)
+# Comments 
+Using This web app you can comment on urls. Like uncommentable youtube videos or websites without comment section
+You Can visit it from [here](https://comment-rex.herokuapp.com/):
 
-## node express
-i used express middleware in a nodejs environment.
-body-parser middleware was used to receive form data input,
-i used ejs middleware for html rendering.
-
-## mongodb
-I use mongoos middleware to use mongodb on node.
-
-## Execution
-1. git clone
-2. npm install
-3. node app.js
-
-# caution
-node and mongodb must be installed.
+# What's next ?
+This app needs CSS and it's some bugs and i think a making Chrome extension of this app will make it more easy to use,i'll do it soon.
