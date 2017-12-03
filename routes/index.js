@@ -118,6 +118,8 @@ a=a+4;
 c=c+4;
 }
 
+//var bigot ="<h2 id='comment' style='display:none;'>&quot"+"&quot</h2><p id='user' style='display:none;' >"+"mig""</p><br/>";
+
 //zigot = .replace('a','e');
 
 zigot = zigot.replace(/'/gi, '');
@@ -133,9 +135,44 @@ var apex = zigot.split("0");
 
 
 
+var alamet=  '   var data = {};  '  + 
+ '            data.url = "'+url+'" ;  '  + 
+ '            data.name = document.getElementById("name").value;  '  + 
+ '            data.Comment = document.getElementById("coment").value;  '  + 
+ '     '  + 
+ '   $.ajax({  '  + 
+ '              type: "POST",  '  + 
+ '              data: JSON.stringify(data),  '  + 
+ '                  contentType: "application/json",  '  + 
+ '                           url: "http://localhost:8080/api/insert",             '  + 
+ '                           success: function(data) {  '  + 
+ '                               console.log("success");  '  + 
+ '                               console.log(JSON.stringify(data));  '  + 
+ '                           }  '  + 
+ '                      });  ' ; 
+
+
+
+var script =  '   <script type="text/javascript">  '  + 
+
+ '     '  + 
+ '   function work(){  '  + alamet+
+ '      '  + 
+ '   document.getElementById("user").innerHTML = document.getElementById("name").value;  '  + 
+ '   document.getElementById("comment").innerHTML = document.getElementById("coment").value; '  + 
+ '     '  + 
+ '   document.getElementById("user").style.display = "inline";  '  + 
+ '   document.getElementById("comment").style.display = "inline";   '  + 
+  '   document.getElementById("form").style.display = "none";   '  + 
+    '   document.getElementById("thx").style.display = "inline";   '  + 
+ '  }  </script>' ; 
+
+
+
+
 //var combox = ""
 
-var sb = " <form id='form-one' class='form' action='/api/insert' method='post'>" +
+var sb = "<div id='form'> <form id='form-one' class='form' action='/api/insert' method='post'>" +
 "      " +
 "      <p class='name' >" +
 "        <input name='name' type='text'       class='validate[required,custom[onlyLetter],length[0,100]] feedback-input' placeholder='Name' id='name' />" +
@@ -144,15 +181,23 @@ var sb = " <form id='form-one' class='form' action='/api/insert' method='post'>"
 "      " +
 "      " +
 "      <p class='text'>" +
-"        <textarea name='Comment' class='validate[required,length[6,300]] feedback-input' id='comment' placeholder='Comment' style='height: 50px; width: 300px;'></textarea>" +
+"        <textarea name='Comment' class='validate[required,length[6,300]] feedback-input' id='coment' placeholder='Comment' style='height: 50px; width: 300px;'></textarea>" +
 "      </p>" +
 "      " +
 "      <input type='text' name='url'  placeholder='url' style='width: 20%; height: 35px; display: none ' " +"value="+url+">"+
 "    " +
-"        <input type='submit' value='Comment !' id='button-bottom'/>" +
-"       </form>";
+"        " +
+"       </form>"+"<button onclick='work()'>Comment</button> </div><h3 id='thx' style='display:none'></br>Your Comment successfully submitted! , Thanks</h3>";
 
-apex[0] = "<div style='text-align: center;'>"+apex[0]+sb +"</div>";
+
+//sb = sb +"<h2 id='comment' style='display:none'>&quot" "&quot</h2><p id='user' style='display:none;' >" "mig""</p><br/>";
+
+sb = "</br>&quot<h2 id='comment' style='display:none'>' '</h2>&quot</br></br><p id='user' style='display:none;' >' 'mig''</p><br/>"+sb;
+
+sb = '<script src="http://code.jquery.com/jquery-latest.min.js"  type="text/javascript"></script>' +sb;
+
+
+apex[0] = "<div style='text-align: center;'>"+apex[0]+sb+script +"</div></br></br></br></br></br></br></br></br></br></br></br></br>";
 
 
 return apex[0];
@@ -163,12 +208,45 @@ return apex[0];
 
 function create(url){
 
+var alamet=  '   var data = {};  '  + 
+ '            data.url = "'+url+'" ;  '  + 
+ '            data.name = document.getElementById("name").value;  '  + 
+ '            data.Comment = document.getElementById("coment").value;  '  + 
+ '     '  + 
+ '   $.ajax({  '  + 
+ '              type: "POST",  '  + 
+ '              data: JSON.stringify(data),  '  + 
+ '                  contentType: "application/json",  '  + 
+ '                           url: "http://localhost:8080/api/insert",             '  + 
+ '                           success: function(data) {  '  + 
+ '                               console.log("success");  '  + 
+ '                               console.log(JSON.stringify(data));  '  + 
+ '                           }  '  + 
+ '                      });  ' ; 
+
+
+
+var script =  '   <script type="text/javascript">  '  + 
+
+ '     '  + 
+ '   function work(){  '  + alamet+
+ '      '  + 
+ '   document.getElementById("user").innerHTML = document.getElementById("name").value;  '  + 
+ '   document.getElementById("comment").innerHTML = document.getElementById("coment").value; '  + 
+ '     '  + 
+ '   document.getElementById("user").style.display = "inline";  '  + 
+ '   document.getElementById("comment").style.display = "inline";   '  + 
+  '   document.getElementById("form").style.display = "none";   '  + 
+    '   document.getElementById("empty").style.display = "none";   '  + 
+    '   document.getElementById("thx").style.display = "inline";   '  + 
+ '  }  </script>' ; 
+
 
 
 
 //var combox = ""
 
-var sb = " <form id='form-one' class='form' action='/api/insert' method='post'>" +
+var sb = "<div id='form'> <form id='form-one' class='form' action='/api/insert' method='post'>" +
 "      " +
 "      <p class='name' >" +
 "        <input name='name' type='text'       class='validate[required,custom[onlyLetter],length[0,100]] feedback-input' placeholder='Name' id='name' />" +
@@ -177,17 +255,30 @@ var sb = " <form id='form-one' class='form' action='/api/insert' method='post'>"
 "      " +
 "      " +
 "      <p class='text'>" +
-"        <textarea name='Comment' class='validate[required,length[6,300]] feedback-input' id='comment' placeholder='Comment' style='height: 50px; width: 300px;'></textarea>" +
+"        <textarea name='Comment' class='validate[required,length[6,300]] feedback-input' id='coment' placeholder='Comment' style='height: 50px; width: 300px;'></textarea>" +
 "      </p>" +
 "      " +
 "      <input type='text' name='url'  placeholder='url' style='width: 20%; height: 35px; display: none ' " +"value="+url+">"+
 "    " +
-"        <input type='submit' value='Comment !' id='button-bottom'/>" +
-"       </form>";
+"        " +
+"       </form>"+"<button onclick='work()'>Comment</button> </div><h3 id='thx' style='display:none'></br>Your Comment successfully submitted! , Thanks</h3>";
+
+
+//sb = sb +"<h2 id='comment' style='display:none'>&quot" "&quot</h2><p id='user' style='display:none;' >" "mig""</p><br/>";
+
+sb = "</br>&quot<h2 id='comment' style='display:none'>' '</h2>&quot</br></br><p id='user' style='display:none;' >' 'mig''</p><br/>"+sb;
+
+sb = '<script src="http://code.jquery.com/jquery-latest.min.js"  type="text/javascript"></script>' +sb;
+
+
+
+//var combox = ""
+
+
 
 var apex;
 
-apex = "<div style='text-align: center;'>"+"no comments posted.Be first!"+sb +"</div>";
+apex = "<div style='text-align: center;'>"+"<p id='empty'><h1>"+url+"</h1></br>No Comments Found under This url, Be first!</p>"+sb+script +"</div></br></br></br></br></br></br></br></br></br></br></br></br>";
 
 
 return apex;
